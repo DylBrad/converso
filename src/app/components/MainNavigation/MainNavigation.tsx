@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Conversations from '../../public/undraw_team_up_re_84ok.svg';
-import AddLessons from '../../public/undraw_add_files_re_v09g.svg';
-import AvatarMale from '../../public/undraw_male_avatar_g98d.svg';
+import Conversations from '../../../../public/undraw_team_up_re_84ok.svg';
+import AddLessons from '../../../../public/undraw_add_files_re_v09g.svg';
+import AvatarMale from '../../../../public/undraw_male_avatar_g98d.svg';
 
 const MainNavigation = () => {
   return (
