@@ -1,19 +1,16 @@
+'use client';
+import * as React from 'react';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 import MainContent from './homeComponents/MainContent/MainContent';
+import LessonContainer from './lessonsComponents/LessonContainer/LessonContainer';
 
 export default function Home() {
+  const [displayLesson, setDisplayLesson] = React.useState(false);
   return (
     <main>
       <div className="main-content-container">
-        <div className="home-header">
-          <div>
-            <span>Conversations</span>
-          </div>
-          <div className="inactive">
-            <span>Cards</span>
-          </div>
-        </div>
-        <MainContent />
+        {!displayLesson && <MainContent setDisplayLesson={setDisplayLesson} />}
+        {displayLesson && <LessonContainer />}
       </div>
       <MainNavigation />
     </main>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --text-faded: #514e4ea3;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -13,7 +17,7 @@ body {
 }
 
 .navigation {
-  width: 500px;
+  max-width: 500px;
   height: 100%;
   margin: auto;
   align-content: center;
@@ -22,6 +26,11 @@ body {
 .navigation ul {
   display: flex;
   justify-content: space-between;
+}
+@media only screen and (max-width: 800px) {
+  .navigation ul {
+    justify-content: space-around;
+  }
 }
 
 .bottom {
@@ -101,4 +110,91 @@ body {
   padding: 10px;
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+/* Lesson Component */
+.lesson-content {
+  min-height: 100%;
+  align-content: center;
+  text-align: center;
+}
+.lesson {
+  position: relative;
+  max-width: 550px;
+  margin: auto;
+  background: white;
+  height: 650px;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+}
+.lesson-card {
+  position: relative;
+  height: 100%;
+}
+.lesson-phrases {
+  height: 200px;
+  padding-top: 60px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.lesson-image {
+  width: 100%;
+}
+.lesson-image img {
+  margin: auto;
+}
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.lesson a {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 0.5rem;
+  color: var(--text-faded);
+}
+.lesson .button-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.obscure-container {
+  width: fit-content;
+  padding: 5px 10px;
+  position: relative;
+}
+.obscure {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  align-content: center;
+}
+.hide {
+  display: none;
+}
+.obscure-container svg {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.faded {
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
