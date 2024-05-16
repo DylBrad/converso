@@ -125,7 +125,7 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
     setDisplayLesson(false);
   };
 
-  // chang this to just get the lesson that was clicked on. Maybe do it in MainContent
+  // change this to just get the lesson that was clicked on.
   const getCurrentLesson: any = async () => {
     const lessons = await getLesson();
     console.log('LESSONS', lessons);

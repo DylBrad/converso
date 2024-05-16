@@ -1,8 +1,10 @@
 'use client';
 import * as React from 'react';
+import { getLesson } from '../../API';
+
 import Thumbnail from '../Thumbnail/Thumbnail';
 
-// need a function in API to get {_id, title, thumbnail}
+// fake data
 const allLessons = [
   {
     id: 11,
@@ -36,6 +38,16 @@ const MainContent: React.FC<MainContentProps> = ({ setDisplayLesson }) => {
     // this should open the lesson we click on
     setLessonId(lessonId);
   };
+
+  const getCurrentLesson: any = async () => {
+    const lessons = await getLesson();
+    console.log('LESSONS', lessons);
+    return lessons;
+  };
+
+  React.useEffect(() => {
+    getCurrentLesson();
+  }, []);
 
   return (
     <>
