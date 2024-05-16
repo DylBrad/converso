@@ -5,3 +5,9 @@ export async function getAllLessons() {
 
   return response.json();
 }
+
+export async function getOneLesson(id: string) {
+  const response = await fetch(`${apiUrl}/api/lessons/getLesson/?_id=${id}`);
+
+  return response.json();
+}

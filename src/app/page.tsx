@@ -8,8 +8,6 @@ export default function Home() {
   const [displayLesson, setDisplayLesson] = React.useState(false);
   const [lessonId, setLessonId] = React.useState('');
 
-  console.log('ID: page.tsx', lessonId);
-
   return (
     <main>
       <div className="main-content-container">
@@ -20,7 +18,7 @@ export default function Home() {
           />
         )}
         {displayLesson && (
-          <LessonContainer setDisplayLesson={setDisplayLesson} />
+          <LessonContainer setDisplayLesson={setDisplayLesson} id={lessonId} />
         )}
       </div>
       <MainNavigation />
