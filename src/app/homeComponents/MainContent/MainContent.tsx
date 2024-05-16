@@ -1,48 +1,29 @@
 'use client';
 import * as React from 'react';
-import { getLesson } from '../../API';
+import { getAllLessons } from '../../API';
 
 import Thumbnail from '../Thumbnail/Thumbnail';
 
-// fake data
-const allLessons = [
-  {
-    id: 11,
-    thumb:
-      'https://media.istockphoto.com/id/1591572504/photo/cheerful-businesswomen-shaking-hands-in-meeting-room.jpg?s=1024x1024&w=is&k=20&c=GYtKvPPbShP3JOyGRZdlakcQE2_h0skl6g6bU0r83qk=',
-    title: 'Greetings & Introductions',
-  },
-  {
-    id: 12,
-    thumb:
-      'https://images.unsplash.com/photo-1526112455121-272736767b9e?q=80&w=2921&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    title: 'Ordering some food',
-  },
-  {
-    id: 13,
-    thumb:
-      'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    title: 'Arriving at the airport',
-  },
-];
-
 interface MainContentProps {
   setDisplayLesson: any;
+  setLessonId: any;
 }
 
-const MainContent: React.FC<MainContentProps> = ({ setDisplayLesson }) => {
-  const [lessonId, setLessonId] = React.useState(null);
+const MainContent: React.FC<MainContentProps> = ({
+  setDisplayLesson,
+  setLessonId,
+}) => {
+  const [lessons, setLessons] = React.useState([]);
 
-  const handleClick = () => {
+  const handleClick = (selectedLessonId: string) => {
     setDisplayLesson(true);
     // this should open the lesson we click on
-    setLessonId(lessonId);
+    setLessonId(selectedLessonId);
   };
 
   const getCurrentLesson: any = async () => {
-    const lessons = await getLesson();
-    console.log('LESSONS', lessons);
-    return lessons;
+    const response = await getAllLessons();
+    setLessons(response);
   };
 
   React.useEffect(() => {
@@ -61,14 +42,14 @@ const MainContent: React.FC<MainContentProps> = ({ setDisplayLesson }) => {
       </div>
       <div className="main-content">
         <ul className="thumb-list">
-          {allLessons.map((data) => {
+          {lessons.map((lesson) => {
             return (
               <Thumbnail
-                key={data.id}
-                id={data.id}
-                title={data.title}
-                thumb={data.thumb}
-                handleClick={handleClick}
+                key={lesson._id}
+                id={lesson._id}
+                title={lesson.title}
+                thumb={lesson.thumbnail}
+                handleClick={() => handleClick(lesson._id)}
               />
             );
           })}

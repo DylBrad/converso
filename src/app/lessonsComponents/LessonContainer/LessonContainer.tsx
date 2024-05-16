@@ -4,7 +4,7 @@ import { IoClose } from 'react-icons/io5';
 import LessonCard from '../LessonCard/LessonCard';
 import Button from '@/app/components/Button/Button';
 
-import { getLesson } from '../../API';
+import { getAllLessons } from '../../API';
 
 const LessonData = [
   {
@@ -127,7 +127,7 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
 
   // change this to just get the lesson that was clicked on.
   const getCurrentLesson: any = async () => {
-    const lessons = await getLesson();
+    const lessons = await getAllLessons();
     console.log('LESSONS', lessons);
     return lessons;
   };
