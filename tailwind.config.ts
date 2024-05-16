@@ -9,7 +9,9 @@ const config: Config = {
   theme: {
     colors: {
       mainblue: '#00afb9',
+      mainred: '#ff1313',
       offwhite: '#ffffff',
+      offblack: '#1F2421',
     },
     extend: {
       backgroundImage: {

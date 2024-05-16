@@ -10,7 +10,9 @@ export default function Home() {
     <main>
       <div className="main-content-container">
         {!displayLesson && <MainContent setDisplayLesson={setDisplayLesson} />}
-        {displayLesson && <LessonContainer />}
+        {displayLesson && (
+          <LessonContainer setDisplayLesson={setDisplayLesson} />
+        )}
       </div>
       <MainNavigation />
     </main>

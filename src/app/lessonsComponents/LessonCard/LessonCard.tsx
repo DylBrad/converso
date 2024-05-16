@@ -7,17 +7,20 @@ import MenTalkingRight from '../../../../public/conversations/men-talking-left.s
 
 interface LessonCardProps {
   count: number;
-  phrase: 'string';
-  translation: 'string';
+  phrase: string;
+  translation: string;
+  obscure: boolean;
+  setObscure: any;
 }
 
 const LessonCard: React.FC<LessonCardProps> = ({
   count,
   phrase,
   translation,
+  obscure,
+  setObscure,
 }) => {
   const [isEven, setIsEven] = React.useState(true);
-  const [obscure, setObscure] = React.useState(true);
 
   const checkIsEven = (n: number) => {
     return n % 2 == 0;
@@ -29,7 +32,6 @@ const LessonCard: React.FC<LessonCardProps> = ({
 
   React.useEffect(() => {
     setIsEven(checkIsEven(count));
-    console.log(checkIsEven(count));
   }, [isEven]);
 
   return (
@@ -42,6 +44,7 @@ const LessonCard: React.FC<LessonCardProps> = ({
             <div
               onClick={showTranslation}
               className={obscure ? 'obscure' : 'hide'}
+              id="translationHidden"
             >
               <FaEyeLowVision />
             </div>
