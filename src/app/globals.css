@@ -11,6 +11,10 @@ body {
   height: 100vh;
 }
 
+.active {
+  opacity: 1 !important;
+}
+
 .nav-container {
   height: 65px;
   background-color: #00afb9;
@@ -31,6 +35,10 @@ body {
   .navigation ul {
     justify-content: space-around;
   }
+}
+.nav-button {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .bottom {
@@ -69,6 +77,7 @@ body {
   background-color: lightblue;
   padding: 40px 0;
   cursor: pointer;
+  opacity: 0.6;
 }
 .home-header div span {
   font-size: 24px;
@@ -77,9 +86,6 @@ body {
 }
 .home-header div:first-of-type {
   border-right: 1px solid #ffffff;
-}
-.home-header .inactive {
-  opacity: 0.6;
 }
 
 .thumb-list {

@@ -3,20 +3,23 @@ import * as React from 'react';
 import { getAllLessons } from '../../API';
 
 import Thumbnail from '../Thumbnail/Thumbnail';
+import TopMenu from '@/app/components/TopMenu/TopMenu';
 
 interface MainContentProps {
-  setDisplayLesson: any;
+  display: string;
+  setDisplay: any;
   setLessonId: any;
 }
 
 const MainContent: React.FC<MainContentProps> = ({
-  setDisplayLesson,
+  display,
+  setDisplay,
   setLessonId,
 }) => {
   const [lessons, setLessons] = React.useState([]);
 
   const handleClick = (selectedLessonId: string) => {
-    setDisplayLesson(true);
+    setDisplay('LessonContainer');
     // this should open the lesson we click on
     setLessonId(selectedLessonId);
   };
@@ -32,14 +35,7 @@ const MainContent: React.FC<MainContentProps> = ({
 
   return (
     <>
-      <div className="home-header">
-        <div>
-          <span>Conversations</span>
-        </div>
-        <div className="inactive">
-          <span>Cards</span>
-        </div>
-      </div>
+      <TopMenu display={display} setDisplay={setDisplay} />
       <div className="main-content">
         <ul className="thumb-list">
           {lessons.map((lesson) => {

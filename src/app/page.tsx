@@ -3,25 +3,33 @@ import * as React from 'react';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 import MainContent from './homeComponents/MainContent/MainContent';
 import LessonContainer from './lessonsComponents/LessonContainer/LessonContainer';
+import FlashCardsContaner from './flashCardsComponents/FlashCardsContainer/FlashCardsContainer';
+import ProfileContainer from './profileComponents/ProfileContainer/ProfileContainer';
 
 export default function Home() {
-  const [displayLesson, setDisplayLesson] = React.useState(false);
+  const [display, setDisplay] = React.useState('MainContent');
   const [lessonId, setLessonId] = React.useState('');
 
   return (
     <main>
       <div className="main-content-container">
-        {!displayLesson && (
+        {display === 'MainContent' && (
           <MainContent
-            setDisplayLesson={setDisplayLesson}
+            display={display}
+            setDisplay={setDisplay}
             setLessonId={setLessonId}
           />
         )}
-        {displayLesson && (
-          <LessonContainer setDisplayLesson={setDisplayLesson} id={lessonId} />
+        {display === 'LessonContainer' && (
+          <LessonContainer setDisplay={setDisplay} id={lessonId} />
         )}
+
+        {display === 'FlashCardsContainer' && (
+          <FlashCardsContaner display={display} setDisplay={setDisplay} />
+        )}
+        {display === 'ProfileContainer' && <ProfileContainer />}
       </div>
-      <MainNavigation />
+      <MainNavigation display={display} setDisplay={setDisplay} />
     </main>
   );
 }

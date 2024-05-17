@@ -7,12 +7,12 @@ import Button from '@/app/components/Button/Button';
 import { getOneLesson } from '../../API';
 
 interface LessonContainerProps {
-  setDisplayLesson: any;
+  setDisplay: any;
   id: string;
 }
 
 const LessonContainer: React.FC<LessonContainerProps> = ({
-  setDisplayLesson,
+  setDisplay,
   id,
 }) => {
   const [count, setCount] = React.useState(0);
@@ -51,7 +51,7 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
   };
 
   const handleCloseLesson = () => {
-    setDisplayLesson(false);
+    setDisplay('MainContent');
   };
 
   // change this to just get the lesson that was clicked on.
