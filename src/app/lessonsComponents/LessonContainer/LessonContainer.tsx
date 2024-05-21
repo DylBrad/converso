@@ -68,7 +68,7 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
     <>
       <div className="main-content lesson-content">
         <div className="lesson">
-          <div className="delete-btn-wrapper">
+          <div className="close-btn-wrapper">
             <Button
               fontSize={'medium'}
               bg={'bg-white'}
