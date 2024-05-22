@@ -1,13 +1,22 @@
 interface TopMenuProps {
   display: string;
   setDisplay: any;
+  authToken: string;
 }
-const TopMenu: React.FC<TopMenuProps> = ({ display, setDisplay }) => {
+const TopMenu: React.FC<TopMenuProps> = ({
+  display,
+  setDisplay,
+  authToken,
+}) => {
   const handleShowHome = () => {
     setDisplay('MainContent');
   };
   const handleShowFlashcardContainer = () => {
-    setDisplay('FlashCardsContainer');
+    if (authToken) {
+      setDisplay('FlashCardsContainer');
+    } else {
+      alert('Log in to start using flashcards');
+    }
   };
 
   return (

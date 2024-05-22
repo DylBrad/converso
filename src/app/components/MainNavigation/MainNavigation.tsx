@@ -1,24 +1,34 @@
 import Image from 'next/image';
 import Conversations from '../../../../public/undraw_team_up_re_84ok.svg';
-import AddLessons from '../../../../public/undraw_add_files_re_v09g.svg';
+import FlashCards from '../../../../public/undraw_add_files_re_v09g.svg';
 import AvatarMale from '../../../../public/undraw_male_avatar_g98d.svg';
 
 interface MainNavigationProps {
   display: string;
   setDisplay: any;
+  authToken: any;
 }
 const MainNavigation: React.FC<MainNavigationProps> = ({
   display,
   setDisplay,
+  authToken,
 }) => {
   const handleShowHome = () => {
     setDisplay('MainContent');
   };
   const handleShowFlashcardContainer = () => {
-    setDisplay('FlashCardsContainer');
+    if (authToken) {
+      setDisplay('FlashCardsContainer');
+    } else {
+      alert('Log in to start using flashcards');
+    }
   };
   const handleShowProfile = () => {
-    setDisplay('ProfileContainer');
+    if (authToken) {
+      setDisplay('ProfileContainer');
+    } else {
+      alert('Log in');
+    }
   };
 
   return (
@@ -48,7 +58,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
             onClick={handleShowFlashcardContainer}
           >
             <Image
-              src={AddLessons}
+              src={FlashCards}
               alt="lessons"
               width={45}
               height={45}
