@@ -6,11 +6,13 @@ import AvatarMale from '../../../../public/undraw_male_avatar_g98d.svg';
 interface MainNavigationProps {
   display: string;
   setDisplay: any;
+  setDisplayReminder: any;
   authToken: any;
 }
 const MainNavigation: React.FC<MainNavigationProps> = ({
   display,
   setDisplay,
+  setDisplayReminder,
   authToken,
 }) => {
   const handleShowHome = () => {
@@ -20,7 +22,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
     if (authToken) {
       setDisplay('FlashCardsContainer');
     } else {
-      alert('Log in to start using flashcards');
+      setDisplayReminder('AuthReminder');
     }
   };
   const handleShowProfile = () => {

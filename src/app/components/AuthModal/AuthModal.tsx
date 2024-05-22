@@ -10,12 +10,18 @@ import Input from '../formComponents/Input/Input';
 interface AuthModalProps {
   setDisplay: any;
   setAuthToken: any;
+  isSignUp: boolean;
+  setIsSignUp: any;
 }
 
-const AuthModal: React.FC<AuthModalProps> = ({ setDisplay, setAuthToken }) => {
+const AuthModal: React.FC<AuthModalProps> = ({
+  setDisplay,
+  setAuthToken,
+  isSignUp,
+  setIsSignUp,
+}) => {
   const { register, handleSubmit } = useForm();
   const [cookies, setCookie, removeCookie] = useCookies([]);
-  const [isSignUp, setIsSignUp] = React.useState(true);
 
   const onSubmit = async (data: any) => {
     console.log(data);

@@ -9,18 +9,33 @@ import FlashCardsContaner from './flashCardsComponents/FlashCardsContainer/Flash
 import ProfileContainer from './profileComponents/ProfileContainer/ProfileContainer';
 import AuthModal from './components/AuthModal/AuthModal';
 import TopMenu from './components/TopMenu/TopMenu';
+import AuthReminder from './components/AuthReminder/AuthReminder';
 
 export default function Home() {
   const [cookies, setCookie, removeCookie] = useCookies([]);
   const [authToken, setAuthToken] = React.useState(cookies.token);
   const [display, setDisplay] = React.useState('MainContent');
+  const [displayReminder, setDisplayReminder] = React.useState('');
+  const [isSignUp, setIsSignUp] = React.useState(true);
   const [lessonId, setLessonId] = React.useState('');
 
   return (
     <main>
       <div className="main-content-container">
         {display === 'AuthModal' && (
-          <AuthModal setDisplay={setDisplay} setAuthToken={setAuthToken} />
+          <AuthModal
+            setDisplay={setDisplay}
+            setAuthToken={setAuthToken}
+            isSignUp={isSignUp}
+            setIsSignUp={setIsSignUp}
+          />
+        )}
+        {displayReminder === 'AuthReminder' && (
+          <AuthReminder
+            setDisplayReminder={setDisplayReminder}
+            setIsSignUp={setIsSignUp}
+            setDisplay={setDisplay}
+          />
         )}
         {display === 'MainContent' && (
           <TopMenu
@@ -42,13 +57,13 @@ export default function Home() {
         {display === 'LessonContainer' && (
           <LessonContainer setDisplay={setDisplay} id={lessonId} />
         )}
-
         {display === 'FlashCardsContainer' && <FlashCardsContaner />}
         {display === 'ProfileContainer' && <ProfileContainer />}
       </div>
       <MainNavigation
         display={display}
         setDisplay={setDisplay}
+        setDisplayReminder={setDisplayReminder}
         authToken={authToken}
       />
     </main>
