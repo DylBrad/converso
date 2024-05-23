@@ -1,10 +1,8 @@
 const FlashCardsContainer = ({}) => {
   return (
-    <>
-      <div className="main-content">
-        <h1>FLASHCARDS</h1>
-      </div>
-    </>
+    <div className="main-content">
+      <ul className="thumb-list"></ul>
+    </div>
   );
 };
 

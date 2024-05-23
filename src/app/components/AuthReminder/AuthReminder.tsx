@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { IoClose } from 'react-icons/io5';
+import Button from '../Button/Button';
 import flashCard from '../../../../public/flashcards/undraw_flashcards.svg';
 
 interface AuthReminderProps {
@@ -22,10 +24,23 @@ const AuthReminder: React.FC<AuthReminderProps> = ({
     setIsSignUp(false);
     setDisplay('AuthModal');
   };
+  const handleClose = () => {
+    setDisplayReminder('');
+  };
 
   return (
     <div className="disable-wrapper">
       <div className="reminder large-card">
+        <div className="close-btn-wrapper">
+          <Button
+            fontSize={'medium'}
+            bg={'bg-white'}
+            txtColor={'text-offblack'}
+            onClick={handleClose}
+          >
+            <IoClose />
+          </Button>
+        </div>
         <h2>
           Learn faster with
           <br />
