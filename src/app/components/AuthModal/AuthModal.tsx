@@ -34,14 +34,11 @@ const AuthModal: React.FC<AuthModalProps> = ({
       if (!isSignUp) {
         const loggedIn = await logInUser(data);
 
-        console.log('1 ----->>>>>', loggedIn);
-
         if (loggedIn.token !== undefined) {
           setCookie('token', loggedIn.token);
           setAuthToken(loggedIn.token);
           setDisplay('FlashCardsContainer');
         }
-        console.log('TOKEN', cookies.token);
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +46,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
   };
 
   const handleClose = () => {
-    console.log('Close Auth Modal');
+    setDisplay('MainContent');
   };
   const handleIsSignIn = () => {
     setIsSignUp(false);
@@ -59,8 +56,8 @@ const AuthModal: React.FC<AuthModalProps> = ({
   };
 
   return (
-    <div className="auth-container">
-      <div className="delete-btn-wrapper">
+    <div className="auth-wrapper large-card">
+      <div className="close-btn-wrapper">
         <Button
           fontSize={'medium'}
           bg={'bg-white'}
@@ -82,10 +79,27 @@ const AuthModal: React.FC<AuthModalProps> = ({
         <Input fieldName={'password'} register={register}>
           Password
         </Input>
-        <button>{isSignUp ? 'Create Account' : 'Log In'}</button>
+        <Button
+          fontSize={'medium'}
+          bg={'bg-mainblue'}
+          txtColor={'text-offwhite'}
+        >
+          {isSignUp ? 'Create Account' : 'Log In'}
+        </Button>
       </form>
-      <div onClick={isSignUp ? handleIsSignIn : handleIsSignUp}>
-        {isSignUp ? 'Already a member? Sign in.' : 'Not a member? Sign Up Here'}
+      <div
+        className="div-text"
+        onClick={isSignUp ? handleIsSignIn : handleIsSignUp}
+      >
+        {isSignUp ? (
+          <>
+            Already a member? <span>Sign in</span>
+          </>
+        ) : (
+          <>
+            Not a member? <span>Sign Up Here</span>
+          </>
+        )}
       </div>
     </div>
   );

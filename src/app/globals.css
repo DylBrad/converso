@@ -19,6 +19,11 @@ body {
   opacity: 1 !important;
 }
 
+span {
+  color: #00afb9;
+  cursor: pointer;
+}
+
 .large-card {
   position: relative;
   max-width: 550px;
@@ -27,6 +32,11 @@ body {
   height: 650px;
   border: 1px solid lightgray;
   border-radius: 15px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .disable-wrapper {
   position: absolute;
@@ -36,6 +46,19 @@ body {
   right: 0;
   background: #7d7d7d45;
   z-index: 1;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.form-input input {
+  border: 1px solid rgba(117, 117, 117, 0.352);
+}
+.div-text {
+  font-size: 14px;
+  margin-top: 24px;
 }
 
 /* Nav */
@@ -150,13 +173,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   height: 500px;
   padding: 0 50px;
-  align-items: center;
-  text-align: center;
 }
 .reminder h2 {
   font-family: 'Baloo 2', sans-serif;
@@ -175,6 +193,20 @@ body {
 }
 .reminder-login {
   margin-top: 15px;
+}
+
+/* AuthModal */
+.auth-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  width: 320px;
+  padding: 50px 20px;
+}
+.auth-wrapper form {
+  width: 100%;
 }
 
 /* Lesson Component */
