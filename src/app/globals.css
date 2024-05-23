@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
 :root {
   --text-faded: #514e4ea3;
 }
@@ -11,9 +13,55 @@ body {
   height: 100vh;
 }
 
+/* Reuseable Classes */
+
 .active {
   opacity: 1 !important;
 }
+
+span {
+  color: #00afb9;
+  cursor: pointer;
+}
+
+.large-card {
+  position: relative;
+  max-width: 550px;
+  margin: auto;
+  background: white;
+  height: 650px;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.disable-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #7d7d7d45;
+  z-index: 1;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.form-input input {
+  border: 1px solid rgba(117, 117, 117, 0.352);
+}
+.div-text {
+  font-size: 14px;
+  margin-top: 24px;
+}
+
+/* Nav */
 
 .nav-container {
   height: 65px;
@@ -118,20 +166,54 @@ body {
   font-weight: 500;
 }
 
+/* Reminder */
+.reminder {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 500px;
+  padding: 0 50px;
+}
+.reminder h2 {
+  font-family: 'Baloo 2', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 28px;
+  font-style: normal;
+  color: #00afb9;
+}
+.reminder h2 span {
+  font-size: 46px;
+}
+.reminder .reminder-links span {
+  color: #00afb9;
+  cursor: pointer;
+}
+.reminder-login {
+  margin-top: 15px;
+}
+
+/* AuthModal */
+.auth-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  width: 320px;
+  padding: 50px 20px;
+}
+.auth-wrapper form {
+  width: 100%;
+}
+
 /* Lesson Component */
 .lesson-content {
   min-height: 100%;
   align-content: center;
   text-align: center;
-}
-.lesson {
-  position: relative;
-  max-width: 550px;
-  margin: auto;
-  background: white;
-  height: 650px;
-  border: 1px solid lightgray;
-  border-radius: 15px;
 }
 .lesson-card {
   position: relative;
@@ -180,7 +262,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
 }
-.delete-btn-wrapper {
+.close-btn-wrapper {
   position: absolute;
   z-index: 1;
   top: 0px;

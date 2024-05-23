@@ -3,7 +3,7 @@ interface ButtonProps {
   fontSize: string;
   bg: string;
   txtColor: string;
-  onClick: any;
+  onClick?: any;
 }
 const Button: React.FC<ButtonProps> = ({
   children,

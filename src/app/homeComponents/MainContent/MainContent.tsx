@@ -3,16 +3,13 @@ import * as React from 'react';
 import { getAllLessons } from '../../API';
 
 import Thumbnail from '../Thumbnail/Thumbnail';
-import TopMenu from '@/app/components/TopMenu/TopMenu';
 
 interface MainContentProps {
-  display: string;
   setDisplay: any;
   setLessonId: any;
 }
 
 const MainContent: React.FC<MainContentProps> = ({
-  display,
   setDisplay,
   setLessonId,
 }) => {
@@ -35,7 +32,6 @@ const MainContent: React.FC<MainContentProps> = ({
 
   return (
     <>
-      <TopMenu display={display} setDisplay={setDisplay} />
       <div className="main-content">
         <ul className="thumb-list">
           {lessons.map((lesson) => {
