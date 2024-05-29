@@ -1,5 +1,5 @@
 interface ThumbnailProps {
-  id: number;
+  id: string;
   title: string;
   thumb: string;
   handleClick: any;

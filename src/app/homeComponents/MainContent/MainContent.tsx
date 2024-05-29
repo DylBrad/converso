@@ -9,11 +9,17 @@ interface MainContentProps {
   setLessonId: any;
 }
 
+interface Lesson {
+  _id: string;
+  title: string;
+  thumbnail: string;
+}
+
 const MainContent: React.FC<MainContentProps> = ({
   setDisplay,
   setLessonId,
 }) => {
-  const [lessons, setLessons] = React.useState([]);
+  const [lessons, setLessons] = React.useState<Lesson[]>([]);
 
   const handleClick = (selectedLessonId: string) => {
     setDisplay('LessonContainer');
@@ -21,8 +27,8 @@ const MainContent: React.FC<MainContentProps> = ({
     setLessonId(selectedLessonId);
   };
 
-  const getCurrentLesson: any = async () => {
-    const response = await getAllLessons();
+  const getCurrentLesson = async () => {
+    const response: Lesson[] = await getAllLessons();
     setLessons(response);
   };
 
