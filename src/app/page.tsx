@@ -12,8 +12,8 @@ import TopMenu from './components/TopMenu/TopMenu';
 import AuthReminder from './components/AuthReminder/AuthReminder';
 
 export default function Home() {
-  const [cookies, setCookie, removeCookie] = useCookies([]);
-  const [authToken, setAuthToken] = React.useState(cookies.token);
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
+  const [authToken, setAuthToken] = React.useState(cookies.token || '');
   const [display, setDisplay] = React.useState('MainContent');
   const [displayReminder, setDisplayReminder] = React.useState('');
   const [isSignUp, setIsSignUp] = React.useState(true);
