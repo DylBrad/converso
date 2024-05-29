@@ -19,6 +19,9 @@ export default function Home() {
   const [isSignUp, setIsSignUp] = React.useState(true);
   const [lessonId, setLessonId] = React.useState('');
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  console.log('API:', apiUrl);
+
   return (
     <main>
       <div className="main-content-container">
