@@ -21,7 +21,10 @@ const AuthModal: React.FC<AuthModalProps> = ({
   setIsSignUp,
 }) => {
   const { register, handleSubmit } = useForm();
-  const [cookies, setCookie, removeCookie] = useCookies([]);
+  const [cookies, setCookie, removeCookie] = useCookies<
+    string,
+    { token?: string }
+  >([]);
 
   const onSubmit = async (data: any) => {
     console.log(data);

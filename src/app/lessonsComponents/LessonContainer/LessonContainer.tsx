@@ -6,6 +6,15 @@ import Button from '@/app/components/Button/Button';
 
 import { getOneLesson } from '../../API';
 
+interface Card {
+  english: string;
+  portugueseBrazil: string;
+}
+
+interface LessonData {
+  cards: Card[];
+}
+
 interface LessonContainerProps {
   setDisplay: any;
   id: string;
@@ -17,10 +26,10 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
 }) => {
   const [count, setCount] = React.useState(0);
   const [obscure, setObscure] = React.useState(true);
-  const [lessonData, setLessonData] = React.useState({});
+  const [lessonData, setLessonData] = React.useState<LessonData | null>(null);
 
   const handleIncrement = () => {
-    if (obscure === false && count < lessonData.cards.length - 1) {
+    if (!obscure && lessonData && count < lessonData.cards.length - 1) {
       setCount(count + 1);
       setObscure(true);
     } else {
@@ -78,7 +87,7 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
               <IoClose />
             </Button>
           </div>
-          {lessonData.cards && count >= 0 && (
+          {lessonData?.cards && count >= 0 && (
             <LessonCard
               key={count}
               count={count}
@@ -99,7 +108,7 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
                 Previous
               </Button>
             )}
-            {lessonData.cards && count < lessonData.cards.length - 1 && (
+            {lessonData?.cards && count < lessonData.cards.length - 1 && (
               <Button
                 fontSize={'medium'}
                 bg={'bg-mainblue'}
