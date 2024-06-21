@@ -1,15 +1,9 @@
 interface ThumbnailProps {
-  id: string;
   title: string;
   thumb: string;
   handleClick: any;
 }
-const Thumbnail: React.FC<ThumbnailProps> = ({
-  id,
-  title,
-  thumb,
-  handleClick,
-}) => {
+const Thumbnail: React.FC<ThumbnailProps> = ({ title, thumb, handleClick }) => {
   return (
     <li className="thumb" onClick={handleClick}>
       <div
