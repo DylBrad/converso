@@ -1,4 +1,6 @@
-import { cookies } from 'next/headers';
+'use client';
+import * as React from 'react';
+import { deleteUser } from '@/app/API';
 
 interface ProfileContainerProps {
   currentUsersId: string;
@@ -18,8 +20,11 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({
     window.location.reload();
   };
 
-  const handleDeleteAccount = () => {
+  const handleDeleteAccount = async () => {
     console.log('Delete accont');
+    await deleteUser(currentUsersId);
+    removeCookie('token');
+    window.location.reload();
   };
 
   const handleSignIn = () => {

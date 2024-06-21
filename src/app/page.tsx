@@ -21,7 +21,7 @@ interface CustomJwtPayload {
 export default function Home() {
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const [authToken, setAuthToken] = React.useState(cookies.token || '');
-  const [display, setDisplay] = React.useState('ProfileContainer');
+  const [display, setDisplay] = React.useState('MainContent');
   const [displayReminder, setDisplayReminder] = React.useState('');
   const [isSignUp, setIsSignUp] = React.useState(true);
   const [lessonId, setLessonId] = React.useState('');
@@ -112,6 +112,7 @@ export default function Home() {
         setDisplay={setDisplay}
         setDisplayReminder={setDisplayReminder}
         authToken={authToken}
+        setIsSignUp={setIsSignUp}
       />
     </main>
   );
