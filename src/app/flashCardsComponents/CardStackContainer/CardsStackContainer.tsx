@@ -143,7 +143,7 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
               txtColor={'text-offwhite'}
               onClick={handlePassCard}
             >
-              I&apos;ll pass..
+              I&apos;ll pass
             </Button>
             <Button
               fontSize={'medium'}
@@ -151,7 +151,7 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
               txtColor={'text-offwhite'}
               onClick={handleAddcard}
             >
-              Add flashcard!
+              Add Card!
             </Button>
           </div>
         </div>
