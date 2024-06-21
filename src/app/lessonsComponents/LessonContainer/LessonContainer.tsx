@@ -119,6 +119,9 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
               </Button>
             )}
           </div>
+          <a href="https://storyset.com/people">
+            <span>People illustrations by Storyset</span>
+          </a>
         </div>
       </div>
     </>
