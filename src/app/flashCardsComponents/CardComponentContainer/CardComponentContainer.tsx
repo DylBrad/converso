@@ -17,13 +17,13 @@ interface UsersCards {
   portugueseBrazil: string;
 }
 
-interface FlashCardsContainerProps {
+interface CardComponentContainerProps {
   setStackId: any;
   setDisplay: any;
   currentUsersId: string;
 }
 
-const FlashCardsContainer: React.FC<FlashCardsContainerProps> = ({
+const CardComponentContainer: React.FC<CardComponentContainerProps> = ({
   setStackId,
   setDisplay,
   currentUsersId,
@@ -142,4 +142,4 @@ const FlashCardsContainer: React.FC<FlashCardsContainerProps> = ({
   );
 };
 
-export default FlashCardsContainer;
+export default CardComponentContainer;

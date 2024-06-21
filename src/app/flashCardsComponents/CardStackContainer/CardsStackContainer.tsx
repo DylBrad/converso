@@ -6,7 +6,7 @@ import { addCardToUser } from '@/app/API';
 import Button from '@/app/components/Button/Button';
 import Card from '../Card/Card';
 
-interface CardsContainerProps {
+interface CardStackContainerProps {
   getCardData: any;
   setDisplay: any;
   id: string;
@@ -22,7 +22,7 @@ interface CardData {
   cards: Card[];
 }
 
-const CardsContainer: React.FC<CardsContainerProps> = ({
+const CardStackContainer: React.FC<CardStackContainerProps> = ({
   getCardData,
   setDisplay,
   id,
@@ -163,4 +163,4 @@ const CardsContainer: React.FC<CardsContainerProps> = ({
   );
 };
 
-export default CardsContainer;
+export default CardStackContainer;

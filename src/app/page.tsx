@@ -8,8 +8,8 @@ import { getOneCardStack } from '../app/API';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 import MainContent from './homeComponents/MainContent/MainContent';
 import LessonContainer from './lessonsComponents/LessonContainer/LessonContainer';
-import CardsContainer from '@/app/flashCardsComponents/CardsContainer/CardsContainer';
-import FlashCardsContaner from './flashCardsComponents/FlashCardsContainer/FlashCardsContainer';
+import CardStackContainer from '@/app/flashCardsComponents/CardStackContainer/CardsStackContainer';
+import CardComponentContainer from './flashCardsComponents/CardComponentContainer/CardComponentContainer';
 import ProfileContainer from './profileComponents/ProfileContainer/ProfileContainer';
 import AuthModal from './components/AuthModal/AuthModal';
 import TopMenu from './components/TopMenu/TopMenu';
@@ -80,7 +80,7 @@ export default function Home() {
           <LessonContainer setDisplay={setDisplay} id={lessonId} />
         )}
         {display === 'CardsContainer' && (
-          <CardsContainer
+          <CardStackContainer
             getCardData={getOneCardStack}
             setDisplay={setDisplay}
             id={stackId}
@@ -88,7 +88,7 @@ export default function Home() {
           />
         )}
         {display === 'FlashCardsContainer' && (
-          <FlashCardsContaner
+          <CardComponentContainer
             setStackId={setStackId}
             setDisplay={setDisplay}
             currentUsersId={currentUsersId}
