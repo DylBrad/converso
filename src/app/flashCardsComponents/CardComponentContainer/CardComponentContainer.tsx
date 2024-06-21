@@ -56,7 +56,7 @@ const CardComponentContainer: React.FC<CardComponentContainerProps> = ({
   };
 
   const handleLearn = () => {
-    alert('open flashcards');
+    setDisplay('UserCardContainer');
   };
 
   return (

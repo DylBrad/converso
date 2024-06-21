@@ -79,16 +79,6 @@ span {
   margin: 40px 0;
 }
 
-.button-container {
-  display: flex;
-  flex-direction: column;
-  width: 180px;
-}
-.button-container span {
-  color: red;
-  font-size: 14px;
-}
-
 /* Nav */
 
 .nav-container {
@@ -339,6 +329,15 @@ span {
 .add-cards-form {
   max-width: 500px;
 }
+.add-cards-form .button-container {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+}
+.add-cards-form .button-container span {
+  color: red;
+  font-size: 14px;
+}
 
 .cards-to-learn {
   width: 140px;
@@ -361,4 +360,31 @@ span {
 .cards-to-learn span {
   font-size: 36px;
   font-weight: 600;
+}
+
+/* Flash Card correct/incorrect Animation */
+@keyframes flashBorderRed {
+  0% {
+    border: 5px solid rgba(255, 0, 0, 0.515);
+  }
+  100% {
+    border: 1px solid lightgray;
+  }
+}
+
+@keyframes flashBorderGreen {
+  0% {
+    border: 5px solid rgba(0, 128, 0, 0.446);
+  }
+  100% {
+    border: 1px solid lightgray;
+  }
+}
+
+.flash-border-red {
+  animation: flashBorderRed 0.5s ease-in-out;
+}
+
+.flash-border-green {
+  animation: flashBorderGreen 0.5s ease-in-out;
 }

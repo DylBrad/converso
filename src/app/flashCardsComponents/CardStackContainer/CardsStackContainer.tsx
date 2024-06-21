@@ -1,13 +1,12 @@
 'use client';
 import * as React from 'react';
 import { IoClose } from 'react-icons/io5';
-import { addCardToUser } from '@/app/API';
+import { addCardToUser, getOneCardStack } from '@/app/API';
 
 import Button from '@/app/components/Button/Button';
 import Card from '../Card/Card';
 
 interface CardStackContainerProps {
-  getCardData: any;
   setDisplay: any;
   id: string;
   currentUsersId: string;
@@ -23,7 +22,6 @@ interface CardData {
 }
 
 const CardStackContainer: React.FC<CardStackContainerProps> = ({
-  getCardData,
   setDisplay,
   id,
   currentUsersId,
@@ -100,19 +98,18 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
     setCount(count + 1);
   };
 
-  const handleCloseLesson = () => {
+  const handleCloseStack = () => {
     setDisplay('FlashCardsContainer');
   };
 
-  // change this to just get the lesson that was clicked on.
-  const getCurrentCardData: any = async () => {
-    // const lesson = await getOneLesson(id);
-    const card = await getCardData(id);
+  // Get full card stack
+  const getCardStack: any = async () => {
+    const card = await getOneCardStack(id);
     setCardData(card);
   };
 
   React.useEffect(() => {
-    getCurrentCardData();
+    getCardStack();
   }, []);
 
   return (
@@ -124,7 +121,7 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
               fontSize={'medium'}
               bg={'bg-white'}
               txtColor={'text-offblack'}
-              onClick={handleCloseLesson}
+              onClick={handleCloseStack}
             >
               <IoClose />
             </Button>
