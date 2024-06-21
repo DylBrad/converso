@@ -36,6 +36,19 @@ export async function logInUser(user: any) {
   return response.json();
 }
 
+export async function deleteUser(user: string) {
+  const response = await fetch(`${apiUrl}/api/user/deleteAccount`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      _id: user,
+    }),
+  });
+  return response;
+}
+
 // CARDS
 export async function getAllCardStacks() {
   const response = await fetch(`${apiUrl}/api/cards`);

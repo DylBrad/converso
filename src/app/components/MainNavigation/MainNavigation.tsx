@@ -8,12 +8,14 @@ interface MainNavigationProps {
   setDisplay: any;
   setDisplayReminder: any;
   authToken: any;
+  setIsSignUp: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const MainNavigation: React.FC<MainNavigationProps> = ({
   display,
   setDisplay,
   setDisplayReminder,
   authToken,
+  setIsSignUp,
 }) => {
   const handleShowHome = () => {
     setDisplay('MainContent');
@@ -29,7 +31,8 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
     if (authToken) {
       setDisplay('ProfileContainer');
     } else {
-      alert('Log in');
+      setDisplay('AuthModal');
+      setIsSignUp(false);
     }
   };
 
