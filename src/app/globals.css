@@ -183,6 +183,11 @@ span {
   font-size: 0.9rem;
   font-weight: 500;
 }
+@media only screen and (max-width: 800px) {
+  .thumb-list {
+    padding: 40px 3px;
+  }
+}
 
 /* Reminder */
 .reminder {
@@ -212,6 +217,14 @@ span {
 .reminder-login {
   margin-top: 15px;
 }
+@media only screen and (max-width: 800px) {
+  .reminder {
+    padding: 0 20px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+}
 
 /* AuthModal */
 .auth-wrapper {
@@ -225,6 +238,21 @@ span {
 }
 .auth-wrapper form {
   width: 100%;
+}
+@media only screen and (max-width: 800px) {
+  .auth-wrapper {
+    justify-content: flex-end;
+    padding: 0 20px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+  .auth-wrapper form button {
+    margin-top: 200px;
+  }
+  .auth-wrapper .div-text {
+    margin-bottom: 40px;
+  }
 }
 
 /* Lesson Component */
@@ -310,6 +338,21 @@ span {
 .faded {
   color: transparent;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+@media only screen and (max-width: 800px) {
+  .lesson-content {
+    position: relative;
+  }
+  .lesson-content .lesson {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    margin: 0;
+    height: auto;
+  }
 }
 
 /* FlashCards */
