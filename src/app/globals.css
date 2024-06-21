@@ -308,6 +308,7 @@ span {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
+  width: max-content;
 }
 .close-btn-wrapper {
   position: absolute;
@@ -342,16 +343,13 @@ span {
 @media only screen and (max-width: 800px) {
   .lesson-content {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
   }
   .lesson-content .lesson {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-    margin: 0;
-    height: auto;
+    margin: 60px 40px;
   }
 }
 
@@ -430,6 +428,29 @@ span {
 
 .flash-border-green {
   animation: flashBorderGreen 0.8s ease-in-out;
+}
+
+.card-tilt-L {
+  margin: 60px 40px;
+  position: absolute;
+  max-width: 550px;
+  height: 650px;
+  width: calc(100% - 80px);
+  transform: rotate(-5deg);
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+}
+.card-tilt-R {
+  margin: 60px 40px;
+  position: absolute;
+  max-width: 550px;
+  height: 650px;
+  width: calc(100% - 80px);
+  transform: rotate(5deg);
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 15px;
 }
 
 /* Profile */

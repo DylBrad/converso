@@ -76,6 +76,8 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
   return (
     <>
       <div className="main-content lesson-content">
+        <div className="card-tilt-L"></div>
+        <div className="card-tilt-R"></div>
         <div className="lesson large-card">
           <div className="close-btn-wrapper">
             <Button
