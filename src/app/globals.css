@@ -382,11 +382,11 @@ span {
 }
 
 .flash-border-red {
-  animation: flashBorderRed 0.5s ease-in-out;
+  animation: flashBorderRed 0.8s ease-in-out;
 }
 
 .flash-border-green {
-  animation: flashBorderGreen 0.5s ease-in-out;
+  animation: flashBorderGreen 0.8s ease-in-out;
 }
 
 /* Profile */
