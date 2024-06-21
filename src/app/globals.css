@@ -430,27 +430,35 @@ span {
   animation: flashBorderGreen 0.8s ease-in-out;
 }
 
-.card-tilt-L {
-  margin: 60px 40px;
+.card-tilt-L,
+.card-tilt-R {
   position: absolute;
   max-width: 550px;
+  width: 550px;
+  margin: auto;
   height: 650px;
-  width: calc(100% - 80px);
-  transform: rotate(-5deg);
-  background-color: white;
+  max-height: max-content;
+  top: 50%;
+  left: 50%;
   border: 1px solid lightgray;
+  background-color: white;
   border-radius: 15px;
 }
+.card-tilt-L {
+  transform: translate(-50%, -50%) rotate(-5deg);
+}
 .card-tilt-R {
-  margin: 60px 40px;
-  position: absolute;
-  max-width: 550px;
-  height: 650px;
-  width: calc(100% - 80px);
-  transform: rotate(5deg);
-  background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 15px;
+  transform: translate(-50%, -50%) rotate(5deg);
+}
+
+@media only screen and (max-width: 800px) {
+  .card-tilt-L,
+  .card-tilt-R {
+    margin: 60px 40px;
+    max-height: -webkit-fill-available;
+    height: 650px;
+    width: calc(100% - 80px);
+  }
 }
 
 /* Profile */

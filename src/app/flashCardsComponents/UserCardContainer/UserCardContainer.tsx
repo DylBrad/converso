@@ -97,10 +97,6 @@ const UserCardContainer: React.FC<UserCardContainerProps> = ({
   };
 
   const handleCloseStack = () => {
-    if (obscure) {
-      handleReminder();
-      return;
-    }
     setDisplay('FlashCardsContainer');
   };
 
