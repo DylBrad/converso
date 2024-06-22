@@ -1,6 +1,7 @@
 'use client';
 import * as React from 'react';
-import { IoClose } from 'react-icons/io5';
+import { IoClose, IoAddCircleOutline } from 'react-icons/io5';
+
 import LessonCard from '../LessonCard/LessonCard';
 import Button from '@/app/components/Button/Button';
 
@@ -27,13 +28,13 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
   const [count, setCount] = React.useState(0);
   const [obscure, setObscure] = React.useState(true);
   const [lessonData, setLessonData] = React.useState<LessonData | null>(null);
+  const [addCard, setAddCard] = React.useState(false);
 
   const handleIncrement = () => {
     if (!obscure && lessonData && count < lessonData.cards.length - 1) {
       setCount(count + 1);
       setObscure(true);
     } else {
-      console.log('Finish the lesson');
       const element = document.getElementById('translationHidden');
       if (!element) {
         console.error('Element not found.');
@@ -57,6 +58,10 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
   };
   const handleDecrement = () => {
     setCount(count - 1);
+  };
+
+  const handleAddToFlashcards = () => {
+    addCard ? setAddCard(false) : setAddCard(true);
   };
 
   const handleCloseLesson = () => {
@@ -120,6 +125,19 @@ const LessonContainer: React.FC<LessonContainerProps> = ({
                 Next
               </Button>
             )}
+          </div>
+          <div className="add-button">
+            {addCard && (
+              <div className="add-menu">
+                <div>Add to flashcards</div>
+                <div className="error cancel" onClick={handleAddToFlashcards}>
+                  Cancel
+                </div>
+              </div>
+            )}
+            <div className="add-icon">
+              <IoAddCircleOutline onClick={handleAddToFlashcards} />
+            </div>
           </div>
           <a href="https://storyset.com/people">
             <span>People illustrations by Storyset</span>

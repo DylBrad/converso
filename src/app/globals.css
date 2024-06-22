@@ -306,6 +306,31 @@ span {
   font-size: 0.5rem;
   color: var(--text-faded);
 }
+.lesson .add-button {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-size: 2.5rem;
+  color: var(--main-blue);
+}
+.lesson .add-button .add-menu {
+  font-size: 16px;
+  border: 2px solid;
+  padding: 5px 12px;
+  cursor: pointer;
+  background-color: white;
+}
+.lesson .add-button .add-menu div:first-of-type {
+  border-bottom: 1px solid;
+}
+.lesson .add-button .add-menu .cancel {
+  font-size: 12px;
+}
+.lesson .add-button .add-icon {
+  display: flex;
+  justify-content: right;
+  cursor: pointer;
+}
 .lesson .button-container {
   position: absolute;
   bottom: 40px;
