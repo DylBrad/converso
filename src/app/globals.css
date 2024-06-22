@@ -475,7 +475,20 @@ span {
   padding: 20px 40px;
   border-bottom: 1px solid lightgrey;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .profile-container ul li:last-of-type {
   border-bottom: none;
+}
+.profile-container ul li {
+  color: var(--main-blue);
+}
+.profile-container ul li.delete,
+.profile-container ul li.delete span {
+  color: red;
+}
+.profile-container ul li span {
+  margin-left: 10px;
 }
