@@ -29,26 +29,31 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
   const [count, setCount] = React.useState(0);
   const [obscure, setObscure] = React.useState(true);
   const [cardData, setCardData] = React.useState<CardData | null>(null);
+  const [cardExistsError, setCardExistsError] = React.useState('');
+
+  const handleReminder = () => {
+    const element = document.getElementById('translationHidden');
+    if (!element) {
+      console.error('Element not found.');
+      return;
+    }
+    // Define reminder animation
+    var keyframes = [
+      { transform: 'scale(1)' },
+      { transform: 'scale(1.3)' },
+      { transform: 'scale(1)' },
+    ];
+    var options = {
+      duration: 500,
+      iterations: 3,
+      easing: 'ease-in-out',
+    };
+    element.animate(keyframes, options);
+  };
 
   const handleAddcard = async () => {
     if (obscure && cardData && count <= cardData.cards.length - 1) {
-      const element = document.getElementById('translationHidden');
-      if (!element) {
-        console.error('Element not found.');
-        return;
-      }
-      // Define reminder animation
-      var keyframes = [
-        { transform: 'scale(1)' },
-        { transform: 'scale(1.3)' },
-        { transform: 'scale(1)' },
-      ];
-      var options = {
-        duration: 500,
-        iterations: 3,
-        easing: 'ease-in-out',
-      };
-      element.animate(keyframes, options);
+      handleReminder();
     } else if (!obscure && cardData && count < cardData.cards.length - 1) {
       const currentCard = cardData.cards[count];
       const data = {
@@ -63,7 +68,7 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
           setObscure(true);
         } else {
           const error = await response.json();
-          console.error('Error adding card', error.message);
+          setCardExistsError(error.message);
         }
       } catch (error) {
         console.error('Error adding card:', error);
@@ -81,7 +86,7 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
           setDisplay('FlashCardsContainer');
         } else {
           const error = await response.json();
-          console.error('Error adding card', error.message);
+          setCardExistsError(error.message);
         }
       } catch (error) {
         console.error('Error adding card:', error);
@@ -143,7 +148,7 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
               txtColor={'text-offwhite'}
               onClick={handlePassCard}
             >
-              I&apos;ll pass
+              Skip
             </Button>
             <Button
               fontSize={'medium'}
@@ -151,9 +156,12 @@ const CardStackContainer: React.FC<CardStackContainerProps> = ({
               txtColor={'text-offwhite'}
               onClick={handleAddcard}
             >
-              Add Card!
+              Add Card
             </Button>
           </div>
+          {cardExistsError && (
+            <span className="error card-error">{cardExistsError}</span>
+          )}
         </div>
       </div>
     </>
