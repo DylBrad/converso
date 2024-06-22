@@ -78,6 +78,9 @@ span {
   background: lightblue;
   margin: 40px 0;
 }
+.error {
+  color: red;
+}
 
 /* Nav */
 
@@ -339,6 +342,12 @@ span {
 .faded {
   color: transparent;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.card-error {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 @media only screen and (max-width: 800px) {
   .lesson-content {
