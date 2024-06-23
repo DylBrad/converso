@@ -313,24 +313,61 @@ span {
   font-size: 2.5rem;
   color: var(--main-blue);
 }
-.lesson .add-button .add-menu {
-  font-size: 16px;
-  border: 2px solid;
-  padding: 5px 12px;
-  cursor: pointer;
-  background-color: white;
+.talk-bubble {
+  animation: fadeOut 4s forwards;
 }
-.lesson .add-button .add-menu div:first-of-type {
-  border-bottom: 1px solid;
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-.lesson .add-button .add-menu .cancel {
-  font-size: 12px;
-}
-.lesson .add-button .add-icon {
+.talk-bubble {
   display: flex;
-  justify-content: right;
-  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 100px;
+  right: 29px;
+  width: 240px;
+  height: auto;
+  color: var(--main-blue);
+  background-color: white;
+  border: 3px solid var(--main-blue);
+  border-radius: 15px;
+  padding: 10px 20px;
 }
+.talk-bubble::before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: 30px;
+  bottom: -21px;
+  border: 10px solid;
+  border-color: var(--main-blue) var(--main-blue) transparent transparent;
+}
+.talk-bubble::after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: 33px;
+  bottom: -14px;
+  border: 7px solid;
+  border-color: lightyellow lightyellow transparent transparent;
+}
+.talk-bubble .add-icon {
+  font-size: 2rem;
+}
+
 .lesson .button-container {
   position: absolute;
   bottom: 40px;

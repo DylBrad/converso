@@ -1,11 +1,13 @@
 interface TopMenuProps {
   display: string;
   setDisplay: any;
+  setDisplayReminder: any;
   authToken: string;
 }
 const TopMenu: React.FC<TopMenuProps> = ({
   display,
   setDisplay,
+  setDisplayReminder,
   authToken,
 }) => {
   const handleShowHome = () => {
@@ -15,7 +17,7 @@ const TopMenu: React.FC<TopMenuProps> = ({
     if (authToken) {
       setDisplay('FlashCardsContainer');
     } else {
-      alert('Log in to start using flashcards');
+      setDisplayReminder('AuthReminder');
     }
   };
 

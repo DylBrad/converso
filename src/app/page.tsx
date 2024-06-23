@@ -62,6 +62,7 @@ export default function Home() {
           <TopMenu
             display={display}
             setDisplay={setDisplay}
+            setDisplayReminder={setDisplayReminder}
             authToken={authToken}
           />
         )}
@@ -69,6 +70,7 @@ export default function Home() {
           <TopMenu
             display={display}
             setDisplay={setDisplay}
+            setDisplayReminder={setDisplayReminder}
             authToken={authToken}
           />
         )}
@@ -76,7 +78,12 @@ export default function Home() {
           <MainContent setDisplay={setDisplay} setLessonId={setLessonId} />
         )}
         {display === 'LessonContainer' && (
-          <LessonContainer setDisplay={setDisplay} id={lessonId} />
+          <LessonContainer
+            setDisplay={setDisplay}
+            setDisplayReminder={setDisplayReminder}
+            lessonId={lessonId}
+            currentUsersId={currentUsersId}
+          />
         )}
         {display === 'CardsContainer' && (
           <CardStackContainer
